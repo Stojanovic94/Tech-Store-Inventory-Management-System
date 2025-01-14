@@ -1,0 +1,71 @@
+@startuml
+
+abstract class Device {
+    - brand: String
+    - price: float
+    - quantity: int
+    ..
+    + get_details(): String
+}
+
+class MobilePhone {
+    - operating_system: String
+    - storage_capacity: int
+    ..
+    + get_details(): String
+}
+
+class Laptop {
+    - processor: String
+    - ram: int
+    ..
+    + get_details(): String
+}
+
+class Television {
+    - screen_size: float
+    - is_smart: boolean
+    ..
+    + get_details(): String
+}
+
+class Inventory {
+    - devices: List<Device>
+    ..
+    + add_device(device: Device): void
+    + remove_device(brand: String): void
+    + update_device_quantity(brand: String, quantity: int): String
+    + display_inventory(): void
+}
+
+class Customer {
+    - name: String
+    - phone: String
+    - address: String
+    - email: String
+    - orders: List<Order>
+    ..
+    + add_order(order: Order): void
+    + calculate_total_spent(): float
+}
+
+class Order {
+    - customer: Customer
+    - products: List<(Device, int)>
+    - date: datetime
+    - status: String
+    ..
+    + add_product(device: Device, quantity: int): void
+    + calculate_total(): float
+    + apply_discount(discount_percent: float): float
+    + print_order_summary(): void
+}
+
+Device <|-- MobilePhone
+Device <|-- Laptop
+Device <|-- Television
+Inventory *-- Device
+Customer o-- Order
+Order o-- Device
+
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+actor Kupac
+actor Prodavac
+
+usecase "Pretraga proizvoda" as UC1
+usecase "Naručivanje proizvoda" as UC2
+usecase "Pregled porudžbina" as UC3
+usecase "Generisanje izveštaja o potrošnji" as UC4
+
+usecase "Dodavanje novih proizvoda" as UC5
+usecase "Ažuriranje proizvoda" as UC6
+usecase "Uklanjanje proizvoda" as UC7
+usecase "Pregled inventara" as UC8
+usecase "Ažuriranje statusa porudžbine" as UC9
+
+Kupac --> UC1
+Kupac --> UC2
+Kupac --> UC3
+Kupac --> UC4
+
+Prodavac --> UC5
+Prodavac --> UC6
+Prodavac --> UC7
+Prodavac --> UC8
+Prodavac --> UC9
+
+@enduml
